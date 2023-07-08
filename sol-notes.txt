@@ -10,3 +10,17 @@ goals
 playdex.io
  gigamax trading platform
 https://roadmap.sh/blockchain
+
+proof of work
+
+research about why networks use pow
+
+types of assets
+intangible
+tangible
+NF
+EVM - SmartContract
+Sol - Program
+
+Lamport - fractional SOL
+solconverter
