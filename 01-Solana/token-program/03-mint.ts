@@ -11,7 +11,13 @@ async function main() {
     const mint = new Web3.PublicKey('rTGagRf3fqSbs3wZvL6bfp376uQRmf98db3XsRhVmnn')
     const owner = new Web3.PublicKey('9b1p8nUdXaKpZkAKNeDpgJM6QwJ5z2TEdfAftdns6ngK')
     
-    const tokenMint = await token.mintTo(conn, signer,mint,tokenAccount,owner,5)
+    const tokenMint = await token.mintTo(
+        conn,
+        signer,
+        mint,
+        tokenAccount,
+        owner,
+        5)
    console.log("Minted: " ,tokenMint)
 }
 
