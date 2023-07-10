@@ -13,4 +13,4 @@ async function main(){
 }
 main()
 
-// image url = https://arweave.net/0xJ-q0IHALbpVtu89hW81HkoFQPmb9xAvk9SWMp9LFM
+// image url = https://arweave.net/DJVE02MCiMCN6rdWwQTkvarSvK9IBCCksRz_PFTHl5s
