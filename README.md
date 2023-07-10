@@ -1,2 +1,2 @@
 # theblokc-solana-bootcamp
-Solana Dev Bootcamp of The BLOKC, July 2023
+Solana Dev Bootcamp of The BLOKC SBC01, July 2023
