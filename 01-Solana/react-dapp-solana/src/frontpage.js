@@ -33,7 +33,7 @@ function Frontpage() {
 
   const hrclick = async () => {
     try {
-      const conn = new Web3.Connection('http://127.0.0.1:8899');
+      const conn = new Web3.Connection('http://127.0.0.1:8899'); // I have deployed the program in localhost
       const transaction = new Web3.Transaction();
       const publicKey = new Web3.PublicKey(walletAddress);
 
@@ -46,7 +46,7 @@ function Frontpage() {
           },
         ],
         data: new TextEncoder().encode(inputValue),
-        programId: new Web3.PublicKey('7cgYCe8kEGUizRzRNf2EK5y5fS7XQv1wXUxyBgLa1SG6'),
+        programId: new Web3.PublicKey('7cgYCe8kEGUizRzRNf2EK5y5fS7XQv1wXUxyBgLa1SG6'), // Program ID of your Contract
       });
 
       transaction.add(instruction);
