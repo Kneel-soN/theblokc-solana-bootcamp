@@ -4,15 +4,14 @@ import { sendAndConfirmTransaction } from '@solana/web3.js';
 
 async function main() {
   const conn = new Web3.Connection('http://127.0.0.1:8899');
-  const secretKeyBytes = [
-    25, 232, 141, 58, 234, 47, 207, 8, 158, 210, 135, 145, 102, 132, 49, 22, 20, 111, 190, 151, 140, 122, 235, 9, 40, 200,
-    210, 70, 35, 195, 96, 153, 223, 127, 155, 42, 175, 117, 45, 205, 75, 31, 12, 211, 86, 86, 45, 44, 186, 60, 255, 112,
-    182, 99, 69, 36, 67, 101, 222, 7, 195, 146, 152, 62
-  ];
-  
+
+  const secretKeyBytes = [154,30,53,19,223,246,27,226,50,48,108,233,61,187,253,176,243,172,234,230,111,249,243,118,250,65,117,188,186,245,237,210,167,12,89,104,254,65,186,80,32,84,149,98,91,161,41,142,225,2,154,141,145,21,3,223,254,155,76,134,17,150,151,13];
   const signer = Web3.Keypair.fromSecretKey(new Uint8Array(secretKeyBytes));
   const transaction = new Web3.Transaction();
-  const publicKey = new Web3.PublicKey('G3SmnM2G9vtnPcpR2U5v3fEvEjGk8v478iDJkEj1HGow');
+  const publicKey = new Web3.PublicKey('CF61RU1VAEJ4jHyf55KS4nNKAjM37TmMGQZkUN27c8Sp');
+
+  const inputValue = 'Hello, Solana!'; // The input string
+
   const instruction = new Web3.TransactionInstruction({
     keys: [
       {
@@ -21,8 +20,8 @@ async function main() {
         isWritable: false,
       }
     ],
-    data: Buffer.alloc(20),
-    programId: new Web3.PublicKey("7VStgGGfWx5kbxKc3Pvx6zDXR267Aei5VXnmLmJis21j"), // contract of Solana
+    data: Buffer.from(inputValue, 'utf-8'), // Convert the input string to Buffer
+    programId: new Web3.PublicKey("Esk5YV96XgHD8J96QjpEXrCHjNrQegBLFWv7Bzffnphu"), // contract of Solana
   });
   
   transaction.add(instruction);
