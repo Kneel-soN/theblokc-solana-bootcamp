@@ -157,7 +157,7 @@ function Frontpage() {
   <div>
     <h4>Transaction Details</h4>
     {transactionDetails.transaction.instructions
-      .filter((_, index) => index === 1) // Filter to get the second instance of data
+      .filter((_, index) => index === 1)
       .map((instruction, index) => (
         <div key={index}>
           <p>You have Input: <strong>{instruction.data.toString()}</strong> in this transaction</p>
