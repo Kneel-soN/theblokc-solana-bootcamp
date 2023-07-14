@@ -1,16 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import logo192 from './assets/logo192.png';
-import { connectWallet, dc , getProvider} from './functions';
+import { connectWallet, dc, getProvider } from './functions';
 import { useState } from 'react';
 import * as Web3 from '@solana/web3.js';
 import { sendAndConfirmTransaction } from '@solana/web3.js';
-<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
 
 function Frontpage() {
   const [walletAddress, setWalletAddress] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [result, setResult] = useState('');
+  const [signature, setSignature] = useState('');
+  const [isTransactionConfirmed, setTransactionConfirmed] = useState(false);
 
   const connect = async () => {
     try {
@@ -33,23 +34,46 @@ function Frontpage() {
 
   const hrclick = async () => {
     try {
-      const conn = new Web3.Connection('http://127.0.0.1:8899'); // I have deployed the program in localhost
+      const conn = new Web3.Connection('http://127.0.0.1:8899');
       const transaction = new Web3.Transaction();
       const publicKey = new Web3.PublicKey(walletAddress);
+      const pid = new Web3.PublicKey('6pNQ9WxoGWcjYmELEB3CgxZgoEYWYpzT6FCeC3qqQPAU');
+      const seeds = [Uint8Array.from('my-seed')];
+      const [pda, pdaNonce] = Web3.PublicKey.findProgramAddressSync(seeds, pid);
+
+      const accountPublicKey = pda;
+
+      const newSeeds = [Uint8Array.from('my-seed'), Uint8Array.from([pdaNonce])];
+      const [newPda] = Web3.PublicKey.findProgramAddressSync(newSeeds, pid);
 
       const instruction = new Web3.TransactionInstruction({
         keys: [
           {
-            pubkey: publicKey,
-            isSigner: true,
-            isWritable: false,
+            pubkey: accountPublicKey,
+            isSigner: false,
+            isWritable: true,
           },
         ],
-        data: new TextEncoder().encode(inputValue),
-        programId: new Web3.PublicKey('7cgYCe8kEGUizRzRNf2EK5y5fS7XQv1wXUxyBgLa1SG6'), // Program ID of your Contract
+        data: [],
+        programId: pid,
       });
 
       transaction.add(instruction);
+
+      const userinputData = new TextEncoder().encode(inputValue);
+      const storeInstruction = new Web3.TransactionInstruction({
+        keys: [
+          {
+            pubkey: newPda,
+            isSigner: false,
+            isWritable: true,
+          },
+        ],
+        data: userinputData,
+        programId: pid,
+      });
+
+      transaction.add(storeInstruction);
 
       const provider = getProvider();
       const { blockhash } = await conn.getLatestBlockhash();
@@ -60,15 +84,15 @@ function Frontpage() {
       const signedTransaction = await provider.signTransaction(transaction);
       const signature = await conn.sendRawTransaction(signedTransaction.serialize());
       await conn.confirmTransaction(signature);
-      
+
       setResult(signature);
-      console.log('Signature: ', signature)
+      setSignature(signature);
+      setTransactionConfirmed(true);
     } catch (error) {
       console.error('Error sending transaction:', error);
-   
     }
   };
-  
+
   return (
     <div className="App">
       <header className="App-header">
@@ -84,15 +108,25 @@ function Frontpage() {
             <p>No wallet Detected</p>
           </>
         )}
-<input type="text" value={inputValue} onChange={hic} />
-{inputValue ? (
-  <p>Result: {inputValue}</p>
-) : (
-  <p>Please enter some input.</p>
-)}
-<button onClick={hrclick}>Submit to Network</button>
-
-
+        <input type="text" value={inputValue} onChange={hic} />
+        {inputValue ? (
+          <p>Result: {inputValue}</p>
+        ) : (
+          <p>Please enter some input.</p>
+        )}
+        <button onClick={hrclick}>Submit to Network</button>
+        {isTransactionConfirmed && (
+          <p style={{ fontSize: 'smaller' }}>
+            Transaction confirmed!{' '}
+            <a
+              href={`https://explorer.solana.com/tx/${signature}?cluster=custom&customUrl=http%3A%2F%2Flocalhost%3A8899`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Solana Explorer
+            </a>
+          </p>
+        )}
       </header>
     </div>
   );
