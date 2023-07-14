@@ -44,6 +44,11 @@ function input() {
   setResult(inputValue);
 }
 
-
+export const hexToString = (hex) => {
+  const hexWithoutPrefix = hex.startsWith('0x') ? hex.slice(2) : hex;
+  const bytes = new Uint8Array(hexWithoutPrefix.match(/.{1,2}/g).map((byte) => parseInt(byte, 16)));
+  const decoder = new TextDecoder('utf-8');
+  return decoder.decode(bytes);
+};
 
 
