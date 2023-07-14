@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import * as Web3 from '@solana/web3.js';
 import logo192 from './assets/logo192.png';
 import { connectWallet, dc, getProvider } from './functions';
+import './App.css';
 
 function Frontpage() {
   const [walletAddress, setWalletAddress] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const [result, setResult] = useState('');
   const [signature, setSignature] = useState('');
   const [isTransactionConfirmed, setTransactionConfirmed] = useState(false);
-  const [transactions, setTransactions] = useState([]);
   const [transactionSignature, setTransactionSignature] = useState('');
   const [transactionDetails, setTransactionDetails] = useState(null);
 
@@ -85,7 +84,6 @@ function Frontpage() {
       const txSignature = await conn.sendRawTransaction(signedTransaction.serialize());
       await conn.confirmTransaction(txSignature);
 
-      setResult(txSignature);
       setSignature(txSignature);
       setTransactionConfirmed(true);
     } catch (error) {
