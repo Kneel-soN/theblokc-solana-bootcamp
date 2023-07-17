@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import * as Web3 from '@solana/web3.js';
 import logo192 from './assets/logo192.png';
 import { connectWallet, dc, getProvider } from './functions';
+import { Buffer } from 'buffer';
 import './App.css';
-
+window.Buffer = Buffer;
 function Frontpage() {
   const [walletAddress, setWalletAddress] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -68,7 +69,7 @@ function Frontpage() {
             isWritable: true,
           },
         ],
-        data: userinputData,
+        data: Buffer.alloc(userinputData.length,userinputData ,'utf-8'),
         programId: pid,
       });
 
