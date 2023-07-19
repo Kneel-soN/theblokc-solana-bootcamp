@@ -175,6 +175,17 @@ const findTxRes = async () => {
         ) : (
           <p></p>
         )}
+  <div>
+<p>Note: Phantom Wallet may block your access to this dapp, if you are unsure of account's safety, you can check my repo here </p>
+    <p>Note: Phantom Wallet may block your access to this dapp, if you are unsure of account's safety, you can check my repo here </p>
+     <a
+              href={`https://github.com/Kneel-soN/theblokc-solana-bootcamp/tree/main/nextjs-anchor-dapp`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+  
+            </a>
+</div>
       </header>
     </div>
   );
