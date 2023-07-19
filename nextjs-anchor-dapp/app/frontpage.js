@@ -192,6 +192,7 @@ const findTxRes = async () => {
 <p style={{ fontSize: '16px', color: 'yellow' }}>and try running it locally</p>
       </header>
     </div>
+<p>soon: solana wallet adapter</p>
   );
 }
 
