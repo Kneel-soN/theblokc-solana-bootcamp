@@ -172,7 +172,7 @@ const findTxRes = async () => {
             )}
           </div>
         ) : (
-          <p>test.</p>
+          <p></p>
         )}
       </header>
     </div>
