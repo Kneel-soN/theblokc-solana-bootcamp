@@ -52,7 +52,6 @@ function Frontpage() {
       return;
     }
 
-    // Connect the wallet using the provider
     try {
       await window.solana.connect();
       const provider = getProvider();
