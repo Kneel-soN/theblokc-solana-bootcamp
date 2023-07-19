@@ -172,7 +172,7 @@ const findTxRes = async () => {
             )}
           </div>
         ) : (
-          <p>No transaction data available.</p>
+          <p>test.</p>
         )}
       </header>
     </div>
