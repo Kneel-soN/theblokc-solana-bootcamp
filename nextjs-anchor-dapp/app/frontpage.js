@@ -182,8 +182,7 @@ const findTxRes = async () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-
-    <p style={{ fontSize: '16px',color: 'green' }> Here</p>           
+Here     
             </a>
 </div>
       </header>
