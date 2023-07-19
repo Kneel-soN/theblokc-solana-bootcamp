@@ -186,6 +186,7 @@ const findTxRes = async () => {
   
             </a>
 </div>
+<p style={{ fontSize: '16px', color: 'yellow' }}>and try running it locally</p>
       </header>
     </div>
   );
