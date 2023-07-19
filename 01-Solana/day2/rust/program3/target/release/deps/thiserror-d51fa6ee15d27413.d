@@ -1,0 +1,10 @@
+/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/deps/thiserror-d51fa6ee15d27413.rmeta: /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/lib.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/aserror.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/display.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/provide.rs
+
+/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/deps/libthiserror-d51fa6ee15d27413.rlib: /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/lib.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/aserror.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/display.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/provide.rs
+
+/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/deps/thiserror-d51fa6ee15d27413.d: /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/lib.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/aserror.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/display.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/provide.rs
+
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/lib.rs:
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/aserror.rs:
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/display.rs:
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.43/src/provide.rs:

@@ -1,0 +1,10 @@
+/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/deps/version_check-912d261c4f1efdc4.rmeta: /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs
+
+/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/deps/libversion_check-912d261c4f1efdc4.rlib: /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs
+
+/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/deps/version_check-912d261c4f1efdc4.d: /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs /home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs
+
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs:
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs:
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs:
+/home/kneelson/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs:

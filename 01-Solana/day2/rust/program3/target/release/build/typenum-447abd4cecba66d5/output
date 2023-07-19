@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/build/typenum-447abd4cecba66d5/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/mnt/c/Users/kneelson/Documents/GitHub/theblokc-solana-dev-bootcamp/01-Solana/day2/rust/program3/target/release/build/typenum-447abd4cecba66d5/out/op.rs
