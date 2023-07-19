@@ -1,15 +1,15 @@
 'use client'
 import './App.css';
-import Image from 'next/image';
+import Image from "next/image"
 import viper from './assets/viper.png'
 import { useState} from 'react'
-import {Buffer} from 'buffer';
+
 import idl from './user_input.json'
 import { Connection, PublicKey, clusterApiUrl  } from '@solana/web3.js';
 import { Program, AnchorProvider, web3, } from '@project-serum/anchor';
 import * as Web3 from '@solana/web3.js';
 const {SystemProgram,Keypair} = web3;
-window.Buffer = Buffer
+
 const programID = new PublicKey('9WJTdSQ1F96fJFSGfpQMD6AEPqy14p5KcQuetDCRab91')
 const opts = {
   preflightCommitment:"processed",
@@ -126,14 +126,14 @@ const findTxRes = async () => {
     
     <div className="App">
       <header className="App-header">
-      <p style={{ fontSize: '16px', color: 'green' }}>Address: {walletaddress}</p>
-      <Image src={viper} alt="Logo" width={360}className="App-logo" />
+      <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
+    <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
         <button onClick={connectWallet}>Connect Wallet</button>
 
 
   <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
 <button onClick={input}>Submit</button>
-<p style={{ fontSize: '16px', color: 'green' }}>Signature: {Tx}</p>
+<p style={{ fontSize: '16px', color: 'violet' }}>Signature: {Tx}</p>
 {txDone && (
   <div>
           <p style={{ fontSize: 'smaller' }}>
