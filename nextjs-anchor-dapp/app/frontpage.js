@@ -128,6 +128,7 @@ const findTxRes = async () => {
       <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
     <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
         <button onClick={connectWallet}>Connect Wallet</button>
+<p>Type Something in here</p>
 
 
   <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
