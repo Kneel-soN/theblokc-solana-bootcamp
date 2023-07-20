@@ -158,11 +158,12 @@ const findTxRes = async () => {
           </div>
         )}  
 <input
-            type="text"
-            value={txSig}
-            onChange={(event) => setTxSig(event.target.value)}
-            placeholder="Enter Transaction Signature"
-          />
+  type="text"
+  value={txSig}
+  onChange={(event) => setTxSig(event.target.value)}
+  placeholder="Enter Transaction Signature"
+  disabled={!txDone}
+/>
               <br />
           <button onClick={findTxRes}>Fetch Transaction</button>
 
