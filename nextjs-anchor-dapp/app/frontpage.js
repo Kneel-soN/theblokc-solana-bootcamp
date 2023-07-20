@@ -135,7 +135,13 @@ const findTxRes = async () => {
 <p>Type Something in here</p>
 
 
-  <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+<input
+  value={userInput}
+  onChange={(e) => setUserInput(e.target.value)}
+  placeholder={walletaddress ? "Enter something" : "Connect Wallet First"}
+  disabled={!walletaddress}
+/>
+
 
 <button onClick={input}>Submit</button>
   <br />
