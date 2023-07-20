@@ -164,9 +164,7 @@ const findTxRes = async () => {
   placeholder={txDone ? "Enter Transaction Signature" : "  Submit something first"}
   disabled={!txDone}
 />
-
-              <br />
-          <button onClick={findTxRes}>Fetch Transaction</button>
+          <button onClick={findTxRes}  disabled={!txDone}>Fetch Transaction</button>
 
           {transactionDetails ? (
           <div>
