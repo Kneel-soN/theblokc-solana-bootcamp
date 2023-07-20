@@ -126,14 +126,20 @@ const findTxRes = async () => {
     <div className="App">
       <header className="App-header">
       <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
+  <br />
     <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
+  <br />
         <button onClick={connectWallet}>Connect Wallet</button>
+  <br />
 <p>Type Something in here</p>
 
 
   <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+  <br />
 <button onClick={input}>Submit</button>
+  <br />
 <p style={{ fontSize: '16px', color: 'violet' }}>Signature: {Tx}</p>
+<br />
 {txDone && (
   <div>
           <p style={{ fontSize: 'smaller' }}>
@@ -167,6 +173,7 @@ const findTxRes = async () => {
                   <strong>{transactionDetails.transaction.instructions[0].data.slice(8).toString()}</strong> in this
                   transaction
                 </p>
+                    <br />
               </div>
             ) : (
               <p>No transaction data available.</p>
