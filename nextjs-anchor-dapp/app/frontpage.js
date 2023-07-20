@@ -165,6 +165,7 @@ const findTxRes = async () => {
   disabled={!txDone}
 />
           <button onClick={findTxRes}  disabled={!txDone}>Fetch Transaction</button>
+<br />
 
           {transactionDetails ? (
           <div>
