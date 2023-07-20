@@ -161,7 +161,7 @@ const findTxRes = async () => {
   type="text"
   value={txSig}
   onChange={(event) => setTxSig(event.target.value)}
-  placeholder={txDone ? "Enter Transaction Signature" : "Submit something first"}
+  placeholder={txDone ? "Enter Transaction Signature" : "  Submit something first"}
   disabled={!txDone}
 />
 
