@@ -134,7 +134,7 @@ const findTxRes = async () => {
 
 <p>Type Something in here</p>
 
-
+<br />
 <input
   value={userInput}
   onChange={(e) => setUserInput(e.target.value)}
@@ -170,6 +170,7 @@ const findTxRes = async () => {
   placeholder={txDone ? "Enter Transaction Signature" : "  Submit something first"}
   disabled={!txDone}
 />
+  <br />
           <button onClick={findTxRes}  disabled={!txDone}>Fetch Transaction</button>
 <br />
 
