@@ -139,10 +139,11 @@ const findTxRes = async () => {
 
 <button onClick={input}>Submit</button>
   <br />
-<p style={{ fontSize: '16px', color: 'violet' }}>Signature: {Tx}</p>
+
 <br />
 {txDone && (
   <div>
+  <p style={{ fontSize: '16px', color: 'violet' }}>Signature: {Tx}</p>
           <p style={{ fontSize: 'smaller' }}>
             Transaction confirmed!{' '}
             <a
