@@ -126,11 +126,11 @@ const findTxRes = async () => {
     <div className="App">
       <header className="App-header">
       <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
+      <button onClick={connectWallet}>Connect Wallet</button>
   <br />
     <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
   <br />
-        <button onClick={connectWallet}>Connect Wallet</button>
-  <br />
+
 <p>Type Something in here</p>
 
 
