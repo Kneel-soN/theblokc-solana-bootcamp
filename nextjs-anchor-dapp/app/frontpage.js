@@ -138,7 +138,7 @@ const findTxRes = async () => {
 <input
   value={userInput}
   onChange={(e) => setUserInput(e.target.value)}
-  placeholder={walletaddress ? "Enter something" : "Connect Wallet First"}
+  placeholder={walletaddress ? "Enter something" : " No Wallet Detected "}
   disabled={!walletaddress}
 />
 
