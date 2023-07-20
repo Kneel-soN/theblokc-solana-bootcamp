@@ -194,7 +194,7 @@ const findTxRes = async () => {
     href={`https://github.com/Kneel-soN/theblokc-solana-bootcamp/tree/main/nextjs-anchor-dapp`}
     target="_blank"
     rel="noopener noreferrer"
-    style={{ fontSize: '14px', color: 'green' }}
+    style={{ fontSize: '24px', color: 'green', textDecoration: 'underline' }}
   >
     Here
   </a>
