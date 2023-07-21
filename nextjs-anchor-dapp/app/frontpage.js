@@ -176,8 +176,9 @@ const output = (data) => {
     <div className="App">
       <header className="App-header">
       <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
+    <button onClick={connectWallet}>Connect Wallet</button>
     <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
-        <button onClick={connectWallet}>Connect Wallet</button>
+      
 <p>Type Something in here</p>
 
 
