@@ -158,14 +158,10 @@ useEffect(() => {
   getAllTransactions();
 }, []);
 
-const decodeBase58 = (data) => {
+const output = (data) => {
   try {
-    // Decode the Base58 data to bytes
     const bytes = bs58.decode(data);
-
-    // Convert bytes to ASCII
     const asciiString = Buffer.from(bytes).toString('ascii');
-
     return asciiString;
   } catch (error) {
     console.error('Error decoding Base58 data:', error);
@@ -250,7 +246,7 @@ const decodeBase58 = (data) => {
           {transactions.map((transaction, index) => (
             <div key={index}>
               <p>Data Account: {transaction.pubkey}</p>
-              <p>Decoded Data: {decodeBase58(transaction.account.data).slice(6)}</p>
+              <p>Decoded Data: {output(transaction.account.data).slice(6)}</p>
             </div>
           ))}
         </div>
