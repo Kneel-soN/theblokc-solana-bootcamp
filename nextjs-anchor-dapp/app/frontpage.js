@@ -241,7 +241,7 @@ const output = (data) => {
 </div>
 <p style={{ fontSize: '16px', color: 'yellow' }}>and try running it locally</p>
       </header>
-    <p>Get All Transactions of this Dapp</p>
+    <p>All Transactions of this Dapp</p>
     <div>
           {transactions.map((transaction, index) => (
             <div key={index}>
