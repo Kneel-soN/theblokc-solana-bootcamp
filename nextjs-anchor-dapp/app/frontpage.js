@@ -246,7 +246,7 @@ const output = (data) => {
           {transactions.map((transaction, index) => (
             <div key={index}>
               <p>Data Account: {transaction.pubkey}</p>
-              <p>Decoded Data: {output(transaction.account.data).slice(6)}</p>
+              <p>Data: {output(transaction.account.data).slice(6)}</p>
             </div>
           ))}
         </div>
