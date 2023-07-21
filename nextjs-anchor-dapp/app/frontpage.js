@@ -8,7 +8,6 @@ import idl from './user_input.json'
 import { Connection, PublicKey, clusterApiUrl  } from '@solana/web3.js';
 import { Program, AnchorProvider, web3, } from '@project-serum/anchor';
 import * as Web3 from '@solana/web3.js';
-import { hex } from '@project-serum/anchor/dist/cjs/utils/bytes';
 const {SystemProgram,Keypair} = web3;
 const bs58 = require('bs58');
 
