@@ -2,13 +2,23 @@
 import './App.css';
 import Image from "next/image"
 import viper from './assets/viper.png'
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 
 import idl from './user_input.json'
 import { Connection, PublicKey, clusterApiUrl  } from '@solana/web3.js';
 import { Program, AnchorProvider, web3, } from '@project-serum/anchor';
 import * as Web3 from '@solana/web3.js';
+import { hex } from '@project-serum/anchor/dist/cjs/utils/bytes';
 const {SystemProgram,Keypair} = web3;
+const bs58 = require('bs58');
+
+
+const rpcUrl = 'https://api.testnet.solana.com';
+const method = 'getProgramAccounts';
+const programPubkey = 'UhH9QdWTjFedFNtasBBaxwP7A52JPipkVMqBZuLR6QB';
+
+
+
 
 const programID = new PublicKey('UhH9QdWTjFedFNtasBBaxwP7A52JPipkVMqBZuLR6QB')
 const opts = {
@@ -32,6 +42,7 @@ function Frontpage() {
   const [txSig, setTxSig] = useState('');
   const [transactionDetails, setTransactionDetails] = useState(null);
   const [txDone, setTxDone] = useState(false);
+  const [transactions, setTransactions] = useState([]);
 
 
 
@@ -44,7 +55,6 @@ function Frontpage() {
     );
     return provider;
   };
-
 
   const connectWallet = async () => {
     if (!window.solana) {
@@ -105,6 +115,8 @@ const findTxRes = async () => {
     const conn = new Web3.Connection('https://api.testnet.solana.com');
     const fetchedTransaction = await conn.getConfirmedTransaction(txSig);
 
+    console.log('tx :', fetchedTransaction)
+
     if (fetchedTransaction) {
       setTransactionDetails(fetchedTransaction);
     } else {
@@ -116,8 +128,50 @@ const findTxRes = async () => {
 };
 
 
+const getAllTransactions = () => {
+  const requestData = {
+    jsonrpc: '2.0',
+    id: 1,
+    method: method,
+    params: [programPubkey],
+  };
 
+  fetch(rpcUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      setTransactions(data.result); 
+      console.log('Result ',data.result)
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
 
+useEffect(() => {
+
+  getAllTransactions();
+}, []);
+
+const decodeBase58 = (data) => {
+  try {
+    // Decode the Base58 data to bytes
+    const bytes = bs58.decode(data);
+
+    // Convert bytes to ASCII
+    const asciiString = Buffer.from(bytes).toString('ascii');
+
+    return asciiString;
+  } catch (error) {
+    console.error('Error decoding Base58 data:', error);
+    return null;
+  }
+};
 
 
   return (
@@ -126,30 +180,16 @@ const findTxRes = async () => {
     <div className="App">
       <header className="App-header">
       <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
-    <br />
-      <button onClick={connectWallet}>Connect Wallet</button>
-  <br />
     <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
-  <br />
-
+        <button onClick={connectWallet}>Connect Wallet</button>
 <p>Type Something in here</p>
 
-<br />
-<input
-  value={userInput}
-  onChange={(e) => setUserInput(e.target.value)}
-  placeholder={walletaddress ? "Enter something" : " No Wallet Detected "}
-  disabled={!walletaddress}
-/>
 
-
+  <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
 <button onClick={input}>Submit</button>
-  <br />
-
-<br />
+<p style={{ fontSize: '16px', color: 'violet' }}>Signature: {Tx}</p>
 {txDone && (
   <div>
-  <p style={{ fontSize: '16px', color: 'violet' }}>Signature: {Tx}</p>
           <p style={{ fontSize: 'smaller' }}>
             Transaction confirmed!{' '}
             <a
@@ -164,16 +204,13 @@ const findTxRes = async () => {
           </div>
         )}  
 <input
-  type="text"
-  value={txSig}
-  onChange={(event) => setTxSig(event.target.value)}
-  placeholder={txDone ? "Enter Transaction Signature" : "  Submit something first"}
-  disabled={!txDone}
-/>
-  <br />
-          <button onClick={findTxRes}  disabled={!txDone}>Fetch Transaction</button>
-<br />
-
+            type="text"
+            value={txSig}
+            onChange={(event) => setTxSig(event.target.value)}
+            placeholder="Enter Transaction Signature"
+          />
+          <button onClick={findTxRes}>Fetch Transaction</button>
+   
           {transactionDetails ? (
           <div>
             <h4>Transaction Details</h4>
@@ -184,7 +221,6 @@ const findTxRes = async () => {
                   <strong>{transactionDetails.transaction.instructions[0].data.slice(8).toString()}</strong> in this
                   transaction
                 </p>
-                    <br />
               </div>
             ) : (
               <p>No transaction data available.</p>
@@ -202,16 +238,23 @@ const findTxRes = async () => {
     href={`https://github.com/Kneel-soN/theblokc-solana-bootcamp/tree/main/nextjs-anchor-dapp`}
     target="_blank"
     rel="noopener noreferrer"
-    style={{ fontSize: '24px', color: 'green', textDecoration: 'underline' }}
+    style={{ fontSize: '16px', color: 'green' }}
   >
     Here
   </a>
 </div>
 <p style={{ fontSize: '16px', color: 'yellow' }}>and try running it locally</p>
       </header>
-      <p>soon: solana wallet adapter</p>
+    <button onClick={getAllTransactions}>Get All Transactions of this Dapp</button>
+    <div>
+          {transactions.map((transaction, index) => (
+            <div key={index}>
+              <p>Data Account: {transaction.pubkey}</p>
+              <p>Decoded Data: {decodeBase58(transaction.account.data).slice(6)}</p>
+            </div>
+          ))}
+        </div>
     </div>
-
   );
 }
 
