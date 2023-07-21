@@ -174,6 +174,8 @@ const output = (data) => {
     
     <div className="App">
       <header className="App-header">
+<p>This Dapp is currently connected at Solana Testnet Cluster</p>
+<br/>
       <p style={{ fontSize: '16px', color: 'violet' }}>Address: {walletaddress}</p>
     <button onClick={connectWallet}>Connect Wallet</button>
     <Image src={viper} alt="Logo" height={100}width={360}className="App-logo" />
