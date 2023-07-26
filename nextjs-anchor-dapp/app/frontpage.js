@@ -215,7 +215,7 @@ const output = (data) => {
             {transactionDetails.transaction.instructions.length >= 2 ? (
               <div>
                 <p>
-                  Your Input{' '}
+                  Your Input was {' '}
                   <strong>{transactionDetails.transaction.instructions[0].data.slice(8).toString()}</strong> in this
                   transaction
                 </p>
